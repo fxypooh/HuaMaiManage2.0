@@ -6,7 +6,12 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   // 定义状态
   state: {
-    username: 'Wise Wrong'
+  	user:{}
+  },
+  mutations:{
+  	userLogin(state,data){
+  		state.user=data;//登录后给user赋值
+  	}
   }
 })
 

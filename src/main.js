@@ -4,9 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 //自定义样式主色
-import './assets/styles-element/index.css'
+//import './assets/styles-element/index.css'
 import ElementUI from 'element-ui'
-//import 'element-ui/lib/theme-chalk/index.css';//默认样式
+import 'element-ui/lib/theme-chalk/index.css';//默认样式
 import axios from 'axios'
 import Vuex from 'vuex'
 import store from './vuex/store'

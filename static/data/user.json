@@ -1,1 +1,20 @@
-{"username":"feng"}
+{
+	"msg":"success",
+	"users":[
+		{
+			"username":"feng0",
+			"phone":"18888888888",
+			"level":"0"
+		},
+		{
+			"username":"zhang1",
+			"phone":"17777777777",
+			"level":"1"
+		},
+		{
+			"username":"li2",
+			"phone":"16666666666",
+			"level":"2"
+		}
+	]
+}
