@@ -6,17 +6,17 @@
       <el-alert :title="errorMsg" type="error" show-icon v-if="isErrorShow"></el-alert>
       <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
         <el-form-item label="" prop="phone">
-          <el-input type="tel" v-model="ruleForm.phone" placeholder="请输入手机号码" maxlength="11">
+          <el-input type="tel" v-model.trim="ruleForm.phone" placeholder="请输入手机号码" maxlength="11">
             <template slot="prepend">帐&nbsp;&nbsp;&nbsp;号</template>
           </el-input>
         </el-form-item>
         <el-form-item label="" prop="password">
-          <el-input type="password" v-model="ruleForm.password" placeholder="请输入密码">
+          <el-input type="password" v-model.trim="ruleForm.password" placeholder="请输入密码">
             <template slot="prepend">密&nbsp;&nbsp;&nbsp;码</template>
           </el-input>
         </el-form-item>
         <el-form-item label="" prop="code">
-          <el-input v-model.number="ruleForm.code" placeholder="请输入手机验证码">
+          <el-input v-model.trim="ruleForm.code" placeholder="请输入手机验证码">
             <template slot="prepend">验证码</template>  
             <el-button slot="append" @click="getCode" :disabled="getCodeIsDisabled">{{getCodeMsg}}</el-button>
           </el-input>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import Utils from '../utils.js' 
 export default {
   name: 'Login',
   data () {
@@ -38,8 +39,7 @@ export default {
         if (!value) {
           return callback(new Error('账号不能为空！'));
         }
-        var phoneReg=/^[1][2-9][0-9]{9}$/;
-        if(!phoneReg.test(value)){
+        if(!Utils.phoneReg.test(value)){
           callback(new Error('手机号码格式不正确！'));
         }else{
           callback();
