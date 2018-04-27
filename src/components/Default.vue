@@ -14,7 +14,6 @@
 	    	<aside-menu/>
 	    </el-aside>
 	    <el-main>
-	    	Main
 	    	<router-view/>
 	    </el-main>
 	  </el-container>
@@ -28,7 +27,6 @@ export default {
   components:{'aside-menu':Menu},
   data () {
     return {
-      msg: '华迈管理系统',
       level:'',
       user:''
     }
@@ -89,9 +87,10 @@ export default {
   }
   
   .el-main {
-    background-color: #E9EEF3;
+    // background-color: #E9EEF3;
+    background-color: #fff;
     color: #333;
-    text-align: center;
+    text-align: left;
     align-items:stretch;
   }
   

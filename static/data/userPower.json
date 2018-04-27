@@ -1,14 +1,15 @@
 {
 	"0":[
-			{"index":"1","icon":"el-icon-menu","title":"首页"},
+			{"index":"home","icon":"el-icon-menu","title":"首页"},
 			{
 				"index":"2",
 				"icon":"el-icon-service",
 				"title":"营销管理",
 				"submenu":[
-					{"index":"2-1","title":"页面文案"},
-					{"index":"2-2","title":"banner管理"},
-					{"index":"2-3","title":"新闻消息"}
+					{"index":"market-text","title":"页面文案"},
+					{"index":"market-banner","title":"banner管理"},
+					{"index":"market-news","title":"新闻管理"},
+					{"index":"market-msg","title":"消息管理"}
 				]
 			},
 			{
@@ -16,7 +17,7 @@
 				"icon":"el-icon-menu",
 				"title":"设备管理",
 				"submenu":[
-					{"index":"3-1","title":"设备型号管理"},
+					{"index":"device","title":"设备型号管理"},
 					{"index":"3-2","title":"客户设备列表"},
 					{"index":"3-3","title":"无主设备列表"},
 					{
@@ -79,6 +80,112 @@
 				"submenu":[
 					{"index":"8-1","title":"管理员列表"},
 					{"index":"8-2","title":"添加管理员"}
+				]
+			}
+		],
+	"1":[
+			{"index":"home","icon":"el-icon-menu","title":"首页"},
+			{
+				"index":"3",
+				"icon":"el-icon-menu",
+				"title":"设备管理",
+				"submenu":[
+					{"index":"3-2","title":"客户设备列表"},
+					{
+						"index":"3-5",
+						"title":"设备部件",
+						"submenu":[
+							{"index":"3-5-1","title":"部件到期统计"}
+						]
+					}
+				]
+			},
+			{
+				"index":"4",
+				"icon":"el-icon-share",
+				"title":"经销商管理",
+				"submenu":[
+					{"index":"4-1","title":"经销商列表"},
+					{"index":"4-2","title":"添加经销商"},
+					{"index":"4-3","title":"推荐人列表"}
+				]
+			},
+			{
+				"index":"5",
+				"icon":"el-icon-news",
+				"title":"客户管理",
+				"submenu":[
+					{"index":"5-1","title":"客户列表"},
+					{"index":"5-2","title":"添加客户"}
+				]
+			},
+			{
+				"index":"6",
+				"icon":"el-icon-goods",
+				"title":"订单管理",
+				"submenu":[
+					{"index":"6-1","title":"未分账订单"},
+					{"index":"6-2","title":"已分账订单"}
+				]
+			},
+			{
+				"index":"7",
+				"icon":"el-icon-sold-out",
+				"title":"售后管理",
+				"submenu":[
+					{"index":"7-1","title":"售后列表"}
+				]
+			}
+		],
+	"2":[
+			{"index":"home","icon":"el-icon-menu","title":"首页"},
+			{
+				"index":"3",
+				"icon":"el-icon-menu",
+				"title":"设备管理",
+				"submenu":[
+					{"index":"3-2","title":"客户设备列表"},
+					{
+						"index":"3-5",
+						"title":"设备部件",
+						"submenu":[
+							{"index":"3-5-1","title":"部件到期统计"}
+						]
+					}
+				]
+			},
+			{
+				"index":"4",
+				"icon":"el-icon-share",
+				"title":"经销商管理",
+				"submenu":[
+					{"index":"4-3","title":"推荐人列表"}
+				]
+			},
+			{
+				"index":"5",
+				"icon":"el-icon-news",
+				"title":"客户管理",
+				"submenu":[
+					{"index":"5-1","title":"客户列表"},
+					{"index":"5-2","title":"添加客户"}
+				]
+			},
+			{
+				"index":"6",
+				"icon":"el-icon-goods",
+				"title":"订单管理",
+				"submenu":[
+					{"index":"6-1","title":"未分账订单"},
+					{"index":"6-2","title":"已分账订单"}
+				]
+			},
+			{
+				"index":"7",
+				"icon":"el-icon-sold-out",
+				"title":"售后管理",
+				"submenu":[
+					{"index":"7-1","title":"售后列表"}
 				]
 			}
 		]

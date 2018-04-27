@@ -1,15 +1,17 @@
 
 <template>
 	<el-menu
-      default-active="1"
+      :default-active="activeIndex"
       class="el-menu-vertical"
       @open="handleOpen"
       @close="handleClose"
       @select="handleSelect"
       background-color="#3b3e40"
       text-color="#fff"
-      active-text-color="#ffd04b">
-      <el-menu-item index="1">
+      active-text-color="#ffd04b"
+      router>
+
+      <!-- <el-menu-item index="1">
         <i class="el-icon-menu"></i>
         <span slot="title">首页</span>
       </el-menu-item>
@@ -86,16 +88,33 @@
         </template>
         <el-menu-item index="8-1">管理员列表</el-menu-item>
         <el-menu-item index="8-2">添加管理员</el-menu-item>
-      </el-submenu>
+      </el-submenu> -->
+
+      <my-menu-item 
+      :indexText="item.index" 
+      :titleText="item.title" 
+      :icon="item.icon" 
+      :submenu="item.submenu" 
+      v-for="(item,key) in power" 
+      :key="key">
+      </my-menu-item>
+
     </el-menu>
 </template>
 
 <script>
+import MenuItem from './MenuItem'
 export default {
   name: 'Menu',
+  components:{'my-menu-item':MenuItem},
   data () {
     return {
-      msg: '华迈管理系统'     
+      power:[]    
+    }
+  },
+  computed:{
+    activeIndex(){
+      return this.$route.path.replace('/','')
     }
   },
   methods: {
@@ -108,6 +127,18 @@ export default {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
       }
+  },
+  created:function(){
+    var _this=this;
+    this.$ajax.get("../../static/data/userPower.json").then(function(response){
+        var data=response.data;
+        var level=JSON.parse(sessionStorage.getItem("user")).level;
+        var power=data[level];
+        _this.power=power;
+        console.log(power);
+    }).catch(function(error){
+            console.log(error);
+          }); 
   }
 }
 </script>
