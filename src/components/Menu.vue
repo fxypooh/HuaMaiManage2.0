@@ -6,9 +6,9 @@
       @open="handleOpen"
       @close="handleClose"
       @select="handleSelect"
-      background-color="#3b3e40"
+      background-color="#2d2e2f"
       text-color="#fff"
-      active-text-color="#ffd04b"
+      active-text-color="#0b78e3"
       router>
 
       <!-- <el-menu-item index="1">
@@ -145,7 +145,7 @@ export default {
 
 <style>
   .el-menu{text-align:left;}
-  .el-menu-vertical{border-right:2px solid #ffd04b;}
-  .el-menu--inline{padding-left: 13px;border-right:2px solid #208ed3;}
-  .el-menu-item{border-bottom: 1px solid #292828;}
+  .el-menu-vertical{border-right:2px solid #0b78e3;}
+  .el-menu--inline{padding-left: 13px;}
+  .el-menu-item{border-bottom: 1px solid #2e2f33;}
 </style>

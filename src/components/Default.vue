@@ -63,7 +63,7 @@ export default {
 <style lang="scss">
   $header-height:70px;
   .el-header {
-    background:$main-color;color:#fff;padding: 0 20px;height:$header-height;line-height:$header-height;
+    background:#00274a;color:#fff;padding: 0 20px;height:$header-height;line-height:$header-height;
     .header-logo{
       float:left;height:$header-height;
       .logo{height:40px;vertical-align:middle;}
@@ -80,7 +80,7 @@ export default {
   }
 
   .el-aside {
-    background-color: #3b3e40;
+    background-color: #2d2e2f;
     color: #333;
     text-align: center;
     align-items:stretch;

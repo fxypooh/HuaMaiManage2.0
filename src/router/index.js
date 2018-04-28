@@ -6,6 +6,7 @@ import Login from '@/components/Login'
 import Default from '@/components/Default'
 import Home from '@/components/home/Home'
 import Device from '@/components/device/Device'
+import DeviceAdd from '@/components/device/DeviceAdd'
 import MarketText from '@/components/marketing/MarketText'
 import MarketBanner from '@/components/marketing/MarketBanner'
 import MarketMsg from '@/components/marketing/MarketMsg'
@@ -31,7 +32,8 @@ const router = new Router({
                     { path: '/market-banner', name:'MarketBanner',component: MarketBanner, meta:{auth:true}},
                     { path: '/market-msg', name:'MarketMsg',component: MarketMsg, meta:{auth:true}},
                     { path: '/market-news', name:'MarketNews',component: MarketNews, meta:{auth:true}},
-                    { path: '/device', name:'Device',component: Device, meta:{auth:true}}
+                    { path: '/device', name:'Device',component: Device, meta:{auth:true}},
+                    { path: '/device-add', name:'DeviceAdd',component: DeviceAdd, meta:{auth:true}}
                 ]
     }
   ]

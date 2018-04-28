@@ -36,7 +36,10 @@ export default {
 	submitFormTel(formName) {
 		this.$refs[formName].validate((valid) => {
 			if(valid){
-				console.log('submit!');
+				this.$message({
+		            type: 'success',
+		            message: '保存成功!'
+		        });
 			}else{
 				return false;
 			}
