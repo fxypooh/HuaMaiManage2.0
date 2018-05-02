@@ -86,7 +86,7 @@ export default {
       }
     };
     return {
-     tableData: [{
+      tableData: [{
      	  id:'11',
      	  cat:'活动',
      	  title:'夏季促销',
@@ -183,21 +183,21 @@ export default {
      	  content:'促销买一年送一个月，促销买一年送一个月。',
           date: '2016-05-02'
         }],
-		currentPage: 1,
-		pageSize:10,
-		pageSizes:[10, 20, 30, 40],
-		total:100,
-		dialogFormVisible: false,
-		form: {
-		  title: '',
-		  content: '',
-		  cat: ''
-		},
-		rulesForm:{
-			title: [{ validator: checkTitle, trigger: 'blur' }],
-			content: [{ validator: checkContent, trigger: 'blur' }]
-		},
-        formLabelWidth: '100px'
+  		currentPage: 1,
+  		pageSize:10,
+  		pageSizes:[10, 20, 30, 40],
+  		total:100,
+  		dialogFormVisible: false,
+  		form: {
+  		  title: '',
+  		  content: '',
+  		  cat: ''
+  		},
+  		rulesForm:{
+  			title: [{ validator: checkTitle, trigger: 'blur' }],
+  			content: [{ validator: checkContent, trigger: 'blur' }]
+  		},
+      formLabelWidth: '100px'
     }
   },
   methods:{
@@ -220,7 +220,7 @@ export default {
           });          
         });
   	},
-	delMsg(index,item){
+	  delMsg(index,item){
   		this.$confirm('将从列表中删除本条消息, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -242,24 +242,27 @@ export default {
   	handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
         this.pageSize=val;
-	},
-	handleCurrentChange(val) {
-		console.log(`当前页: ${val}`);
-		console.log('当前每页'+this.pageSize+'条')
-	},
-	addMsg(formName){
-		this.$refs[formName].validate((valid) => {
-			if(valid){
-				this.dialogFormVisible=false;
-				this.$message({
-		            type: 'success',
-		            message: '保存成功!'
-		        });
-			}else{
-				return false;
-			}
-		});
-	}
+	  },
+  	handleCurrentChange(val) {
+  		console.log(`当前页: ${val}`);
+  		console.log('当前每页'+this.pageSize+'条')
+  	},
+  	addMsg(formName){
+      let _this=this;
+  		this.$refs[formName].validate((valid) => {
+  			if(valid){
+  				this.dialogFormVisible=false;
+  				this.$message({
+	            type: 'success',
+	            message: '保存成功!'
+	        });
+          _this.$refs[formName].resetFields();
+          _this.$refs[formName].clearValidate();
+  			}else{
+  				return false;
+  			}
+  		});
+  	}
   }
 }
 </script>

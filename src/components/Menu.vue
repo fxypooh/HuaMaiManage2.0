@@ -114,18 +114,24 @@ export default {
   },
   computed:{
     activeIndex(){
-      return this.$route.path.replace('/','')
+      //console.log(this.$route.path);
+      //return this.$route.path.replace('/default/','')
+      let path=this.$route.path;
+      if(path==="/default/device-add"||path==="/default/device-update"){
+        path="/default/device";
+      }
+      return path;
     }
   },
   methods: {
       handleOpen(key, keyPath) {
-        console.log(key, keyPath);
+        //console.log(key, keyPath);
       },
       handleClose(key, keyPath) {
-        console.log(key, keyPath);
+        //console.log(key, keyPath);
       },
       handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+        //console.log(key, keyPath);
       }
   },
   created:function(){
@@ -135,7 +141,7 @@ export default {
         var level=JSON.parse(sessionStorage.getItem("user")).level;
         var power=data[level];
         _this.power=power;
-        console.log(power);
+        //console.log(power);
     }).catch(function(error){
             console.log(error);
           }); 

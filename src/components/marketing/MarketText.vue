@@ -34,12 +34,15 @@ export default {
   },
   methods: {
 	submitFormTel(formName) {
+		let _this=this;
 		this.$refs[formName].validate((valid) => {
 			if(valid){
 				this.$message({
 		            type: 'success',
 		            message: '保存成功!'
 		        });
+		        _this.$refs[formName].resetFields();
+          		_this.$refs[formName].clearValidate();
 			}else{
 				return false;
 			}

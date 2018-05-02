@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="pageTitle">设备管理-设备型号列表 <el-button type="primary" @click="goAdd">添加型号</el-button></h1>
+		<h1 class="pageTitle">设备型号-列表 <el-button type="primary" @click="goAdd">添加型号</el-button></h1>
 		<el-table
 	    header-row-class-name="tableHeader"
 		:data="tableData"
@@ -55,70 +55,71 @@ export default {
       }
     };
     return {
-     tableData: [{
+      tableData: [{
      	  deviceId:'11',
      	  deviceModel:'1',
      	  deviceModelName:'HMR-I5',
      	  splitRatio:'1',
      	  deviceImg:'http://app.hmjsq.net/resources/images/device/27a62124-7dd9-40a6-8a28-18505c852288.png'
         }, {
-     	  deviceId:'11',
+     	  deviceId:'12',
      	  deviceModel:'1',
      	  deviceModelName:'夏季促销',
      	  splitRatio:'1',
      	  deviceImg:'https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=1a3d82d42f2dd42a4b0409f9625230d0/314e251f95cad1c86a912b9a753e6709c93d5161.jpg'
         }, {
-     	  deviceId:'11',
+     	  deviceId:'13',
      	  deviceModel:'1',
      	  deviceModelName:'夏季促销',
      	  splitRatio:'1',
      	  deviceImg:'http://app.hmjsq.net/resources/images/device/27a62124-7dd9-40a6-8a28-18505c852288.png'
         }, {
-     	  deviceId:'11',
+     	  deviceId:'14',
      	  deviceModel:'1',
      	  deviceModelName:'夏季促销',
      	  splitRatio:'1',
      	  deviceImg:'http://app.hmjsq.net/resources/images/device/27a62124-7dd9-40a6-8a28-18505c852288.png'
         }, {
-     	  deviceId:'11',
+     	  deviceId:'15',
      	  deviceModel:'1',
      	  deviceModelName:'夏季促销',
      	  splitRatio:'1',
      	  deviceImg:'http://app.hmjsq.net/resources/images/device/27a62124-7dd9-40a6-8a28-18505c852288.png'
         }],
-		currentPage: 1,
-		pageSize:10,
-		pageSizes:[10, 20, 30, 40],
-		total:100,
-		dialogFormVisible: false,
-		form: {
-		  title: '',
-		  content: '',
-		  cat: ''
-		},
-		rulesForm:{
-			title: [{ validator: checkTitle, trigger: 'blur' }],
-			content: [{ validator: checkContent, trigger: 'blur' }]
-		},
-        formLabelWidth: '100px'
-    }
+  		currentPage: 1,
+  		pageSize:10,
+  		pageSizes:[10, 20, 30, 40],
+  		total:100,
+  		dialogFormVisible: false,
+  		form: {
+  		  title: '',
+  		  content: '',
+  		  cat: ''
+  		},
+  		rulesForm:{
+  			title: [{ validator: checkTitle, trigger: 'blur' }],
+  			content: [{ validator: checkContent, trigger: 'blur' }]
+  		},
+          formLabelWidth: '100px'
+      }
   },
   methods:{
   	goUpdate(index,item){
   		console.log(index,item.deviceId);
-  		this.$router.push('/device-add');
+      //this.$router.push('device-update/'+item.deviceId);
+  		this.$router.push({name: 'DeviceUpdate', params: {id: item.deviceId}});
   	},
   	goAdd(){
-		this.$router.push('/device-add');
-	},
+		  this.$router.push('device-add');
+	  },
   	handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
         this.pageSize=val;
-	},
-	handleCurrentChange(val) {
-		console.log(`当前页: ${val}`);
-		console.log('当前每页'+this.pageSize+'条')
-	}	
+	  },
+  	handleCurrentChange(val) {
+  		console.log(`当前页: ${val}`);
+  		console.log('当前每页'+this.pageSize+'条')
+  	}	
   }
 }
 </script>

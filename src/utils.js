@@ -15,6 +15,13 @@ var utils = {
     },
     trimN:function(str){
     	return str.replace(/[\r\n]/g,"");
+    },
+    isFloat:function(number){//匹配0-1之间的2位小数
+        if (number.match(/(^0\.[1-9]{1,2}$)|(^1$)|(^0$)|(^1.0$)/)) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }
 export default utils

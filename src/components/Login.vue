@@ -97,13 +97,13 @@ export default {
             if(_this.ruleForm.phone==='18888888888'){
               //_this.$store.commit('userLogin',response.data.users[0]);//存入vuex保存登录状态
               sessionStorage.setItem('user',JSON.stringify(response.data.users[0]));//存入sessionStorage保存登录状态
-              _this.$router.push('/home');
+              _this.$router.push('/default/home');
             }else if(_this.ruleForm.phone==='17777777777'){
               sessionStorage.setItem('user',JSON.stringify(response.data.users[1]));
-              _this.$router.push('/home');
+              _this.$router.push('/default/home');
             }else if(_this.ruleForm.phone==='16666666666'){
               sessionStorage.setItem('user',JSON.stringify(response.data.users[2]));
-              _this.$router.push('/home');
+              _this.$router.push('/default/home');
             }else{
               _this.isErrorShow=true;
             }

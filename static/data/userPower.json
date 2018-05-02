@@ -1,15 +1,15 @@
 {
 	"0":[
-			{"index":"home","icon":"el-icon-menu","title":"首页"},
+			{"index":"/default/home","icon":"el-icon-menu","title":"首页"},
 			{
 				"index":"2",
 				"icon":"el-icon-service",
 				"title":"营销管理",
 				"submenu":[
-					{"index":"market-text","title":"页面文案"},
-					{"index":"market-banner","title":"banner管理"},
-					{"index":"market-news","title":"新闻管理"},
-					{"index":"market-msg","title":"消息管理"}
+					{"index":"/default/market-text","title":"页面文案"},
+					{"index":"/default/market-banner","title":"banner管理"},
+					{"index":"/default/market-news","title":"新闻管理"},
+					{"index":"/default/market-msg","title":"消息管理"}
 				]
 			},
 			{
@@ -17,14 +17,7 @@
 				"icon":"el-icon-menu",
 				"title":"设备管理",
 				"submenu":[
-					{
-						"index":"3-1",
-						"title":"设备型号管理",
-						"submenu":[
-							{"index":"device","title":"型号列表"},
-							{"index":"device-add","title":"型号添加"}
-						]
-					},
+					{"index":"/default/device","title":"设备型号管理"},
 					{"index":"3-2","title":"客户设备列表"},
 					{"index":"3-3","title":"无主设备列表"},
 					{
@@ -91,7 +84,7 @@
 			}
 		],
 	"1":[
-			{"index":"home","icon":"el-icon-menu","title":"首页"},
+			{"index":"default/home","icon":"el-icon-menu","title":"首页"},
 			{
 				"index":"3",
 				"icon":"el-icon-menu",
@@ -145,7 +138,7 @@
 			}
 		],
 	"2":[
-			{"index":"home","icon":"el-icon-menu","title":"首页"},
+			{"index":"default/home","icon":"el-icon-menu","title":"首页"},
 			{
 				"index":"3",
 				"icon":"el-icon-menu",

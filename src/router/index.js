@@ -27,13 +27,14 @@ const router = new Router({
       name: 'Default',
       component: Default,
       children:[
-                    { path: '/home', name:'Home',component: Home, meta:{auth:true} }, // meta:{auth:true}设置当前路由需要校验  不需要校验的路由就不用写了
-                    { path: '/market-text', name:'MarketText',component: MarketText, meta:{auth:true}},
-                    { path: '/market-banner', name:'MarketBanner',component: MarketBanner, meta:{auth:true}},
-                    { path: '/market-msg', name:'MarketMsg',component: MarketMsg, meta:{auth:true}},
-                    { path: '/market-news', name:'MarketNews',component: MarketNews, meta:{auth:true}},
-                    { path: '/device', name:'Device',component: Device, meta:{auth:true}},
-                    { path: '/device-add', name:'DeviceAdd',component: DeviceAdd, meta:{auth:true}}
+                    { path: 'home', name:'Home',component: Home, meta:{auth:true} }, // meta:{auth:true}设置当前路由需要校验  不需要校验的路由就不用写了
+                    { path: 'market-text', name:'MarketText',component: MarketText, meta:{auth:true}},
+                    { path: 'market-banner', name:'MarketBanner',component: MarketBanner, meta:{auth:true}},
+                    { path: 'market-msg', name:'MarketMsg',component: MarketMsg, meta:{auth:true}},
+                    { path: 'market-news', name:'MarketNews',component: MarketNews, meta:{auth:true}},
+                    { path: 'device', name:'Device',component: Device, meta:{auth:true}},
+                    { path: 'device-add', name:'DeviceAdd',component: DeviceAdd, meta:{auth:true}},
+                    { path: 'device-update/:id', name:'DeviceUpdate',component: DeviceAdd, meta:{auth:true}}
                 ]
     }
   ]
