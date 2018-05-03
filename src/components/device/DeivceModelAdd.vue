@@ -162,7 +162,7 @@
 <script>
 import Utils from '../../utils.js' 
 export default {
-  name: 'DeivceAdd',
+  name: 'DeivceModelAdd',
   data () {
     var checkPhone = (rule, value, callback) => {
         if (!value) {
@@ -199,6 +199,7 @@ export default {
     return {
       statusMsg:"添加",
   		src:"",
+      id:"",
   		param:new FormData(),
       flieName:'',
   		ruleForm: {
@@ -303,7 +304,6 @@ export default {
         return false
     	}
     	
-      //console.log(file);
       //创建临时的路径来展示图片
       var windowURL = window.URL || window.webkitURL;
       this.src=windowURL.createObjectURL(file);
@@ -317,33 +317,39 @@ export default {
       var _this=this;
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          if(this.flieName){
-            //整合图片和表单数据给后端
-            for(let key in this.ruleForm){
-              this.param.set(key, this.ruleForm[key]);
-              console.log(this.param.get(key));
-            }
-
-            let config = {
-              headers: {'Content-Type': 'multipart/form-data'}
-            };
-            console.log(this.param.get('file'));
+          //整合图片和表单数据给后端
+          for(let key in this.ruleForm){
+            this.param.set(key, this.ruleForm[key]);
+            console.log(this.param.get(key));
+          }
+          let config = { headers: {'Content-Type': 'multipart/form-data'} };
+          console.log(this.param.get('file'));
+          //分添加和修改两种情况
+          if(this.id){
+            //执行修改，可以不提交图片
             this.$ajax.get("../../static/data/user.json",this.param,config).then(function(response){
-              console.log('success');
+              _this.$message({type: 'success', message: '修改成功!'});
               //成功后清空表单清空图片等数据
               _this.resetForm(formName);
-              _this.clearValidate(formName);
-              _this.flieName="";
             }).catch(function(error){
               console.log(error);
             }); 
           }else{
-            this.$message({
-              type: 'error',
-              message: '请上传图片!'
-            });
-            return false;
+            //添加一定要提交图片
+            if(this.flieName){
+              this.$ajax.get("../../static/data/user.json",this.param,config).then(function(response){
+                _this.$message({type: 'success', message: '添加成功!'});
+                //成功后清空表单清空图片等数据
+                _this.resetForm(formName);
+              }).catch(function(error){
+                console.log(error);
+              }); 
+            }else{
+              this.$message({type: 'error',message: '请上传图片!'});
+              return false;
+            }
           }
+          
         } else {
           console.log('error submit!!');
           return false;
@@ -352,9 +358,8 @@ export default {
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();
-    },
-    clearValidate(formName) {
       this.$refs[formName].clearValidate();
+      this.flieName="";
     }
   },
   created:function(){
@@ -362,6 +367,7 @@ export default {
     if(id){
       this.src="http://app.hmjsq.net/resources/images/device/9f6620c8-8a35-4f69-bfbb-c60a520f056c.png";
       this.statusMsg="编辑";
+      this.id=id;
     }else{
       this.src="https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100";
     }

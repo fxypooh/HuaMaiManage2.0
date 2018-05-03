@@ -5,12 +5,14 @@ import store from '../vuex/store'
 import Login from '@/components/Login'
 import Default from '@/components/Default'
 import Home from '@/components/home/Home'
-import Device from '@/components/device/Device'
-import DeviceAdd from '@/components/device/DeviceAdd'
 import MarketText from '@/components/marketing/MarketText'
 import MarketBanner from '@/components/marketing/MarketBanner'
 import MarketMsg from '@/components/marketing/MarketMsg'
 import MarketNews from '@/components/marketing/MarketNews'
+import DeivceModel from '@/components/device/DeivceModel'
+import DeivceModelAdd from '@/components/device/DeivceModelAdd'
+import DeivceOnList from '@/components/device/DeivceOnList'
+import DeivceOffList from '@/components/device/DeivceOffList'
 
 Vue.use(Router);
 Vue.use(Vuex);
@@ -32,9 +34,11 @@ const router = new Router({
                     { path: 'market-banner', name:'MarketBanner',component: MarketBanner, meta:{auth:true}},
                     { path: 'market-msg', name:'MarketMsg',component: MarketMsg, meta:{auth:true}},
                     { path: 'market-news', name:'MarketNews',component: MarketNews, meta:{auth:true}},
-                    { path: 'device', name:'Device',component: Device, meta:{auth:true}},
-                    { path: 'device-add', name:'DeviceAdd',component: DeviceAdd, meta:{auth:true}},
-                    { path: 'device-update/:id', name:'DeviceUpdate',component: DeviceAdd, meta:{auth:true}}
+                    { path: 'device', name:'DeivceModel',component: DeivceModel, meta:{auth:true}},
+                    { path: 'device-add', name:'DeivceModelAdd',component: DeivceModelAdd, meta:{auth:true}},
+                    { path: 'device-update/:id', name:'DeivceModelUpdate',component: DeivceModelAdd, meta:{auth:true}},
+                    { path: 'device-on-list', name:'DeivceOnList',component: DeivceOnList, meta:{auth:true}},
+                    { path: 'device-off-list', name:'DeivceOffList',component: DeivceOffList, meta:{auth:true}}
                 ]
     }
   ]

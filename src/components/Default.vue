@@ -1,7 +1,7 @@
 
 <template>
 	<el-container>
-	  <el-header height="70">
+	  <el-header height="60">
 	  	<div class="header-logo"><img src="../assets/images/logo1.png" class="logo"><span>管理系统V2.0</span></div>
 	  	<ul class="header-operations">
 	  		<li>{{levelText}}:{{user}}</li>
@@ -61,12 +61,12 @@ export default {
 </script>
 
 <style lang="scss">
-  $header-height:70px;
+  $header-height:60px;
   .el-header {
     background:#00274a;color:#fff;padding: 0 20px;height:$header-height;line-height:$header-height;
     .header-logo{
       float:left;height:$header-height;
-      .logo{height:40px;vertical-align:middle;}
+      .logo{height:36px;vertical-align:middle;}
       span{padding-left:10px;font-size:16px;}
     }
     .header-operations{
