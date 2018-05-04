@@ -13,6 +13,8 @@ import DeivceModel from '@/components/device/DeivceModel'
 import DeivceModelAdd from '@/components/device/DeivceModelAdd'
 import DeivceOnList from '@/components/device/DeivceOnList'
 import DeivceOffList from '@/components/device/DeivceOffList'
+import DeivceParts from '@/components/device/DeivceParts'
+import DeivcePartsPrint from '@/components/device/DeivcePartsPrint'
 
 Vue.use(Router);
 Vue.use(Vuex);
@@ -38,8 +40,15 @@ const router = new Router({
                     { path: 'device-add', name:'DeivceModelAdd',component: DeivceModelAdd, meta:{auth:true}},
                     { path: 'device-update/:id', name:'DeivceModelUpdate',component: DeivceModelAdd, meta:{auth:true}},
                     { path: 'device-on-list', name:'DeivceOnList',component: DeivceOnList, meta:{auth:true}},
-                    { path: 'device-off-list', name:'DeivceOffList',component: DeivceOffList, meta:{auth:true}}
+                    { path: 'device-off-list', name:'DeivceOffList',component: DeivceOffList, meta:{auth:true}},
+                    { path: 'device-parts', name:'DeivceParts',component: DeivceParts, meta:{auth:true}}
                 ]
+    },
+    {
+      path: '/print-part/:deviceModle/:day',
+      name: 'DeivcePartsPrint',
+      component: DeivcePartsPrint,
+      meta:{auth:true}
     }
   ]
 });

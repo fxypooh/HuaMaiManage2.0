@@ -152,6 +152,6 @@ export default {
 <style>
   .el-menu{text-align:left;}
   .el-menu-vertical{border-right:2px solid #0b78e3;}
-  .el-menu--inline{padding-left: 13px;}
+  .el-menu--inline{padding-left: 12px;}
   .el-menu-item{border-bottom: 1px solid #2e2f33;}
 </style>

@@ -65,6 +65,12 @@
           min-width="140">
         </el-table-column>
         <el-table-column
+          prop="deviceName"
+          label="设备名称"
+          align="center"
+          min-width="120">
+        </el-table-column>
+        <el-table-column
             prop="client"
             label="客户"
             align="center"
@@ -117,7 +123,7 @@
             prop="part"
             label="查看滤芯"
             align="center"
-            min-width="120">
+            min-width="110">
             <template slot-scope="scope">
               <el-popover placement="top" >
                   <el-table :data="scope.row.part" max-height="200">
@@ -133,7 +139,7 @@
             prop="orders"
             label="查看订单"
             align="center"
-            min-width="120">
+            min-width="110">
             <template slot-scope="scope">
               <el-popover placement="top">
                   <el-table :data="scope.row.orders" max-height="200">
