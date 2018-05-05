@@ -157,7 +157,6 @@ export default {
       pageSize:10,
       pageSizes:[10, 20, 30, 40],
       total:100,
-      dialogFormVisible: false,
       pickerOptions: {
         shortcuts: [{
           text: '最近一周',
@@ -224,7 +223,6 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
       this.$refs[formName].clearValidate();
-      this.flieName="";
     },
     handleChange (value) {
         this.ruleForm.searchCity="";

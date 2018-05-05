@@ -34,9 +34,9 @@
 				"icon":"el-icon-share",
 				"title":"经销商管理",
 				"submenu":[
-					{"index":"4-1","title":"经销商列表"},
-					{"index":"4-2","title":"添加经销商"},
-					{"index":"4-3","title":"推荐人列表"}
+					{"index":"/default/dealer","title":"经销商列表"},
+					{"index":"/default/dealer-add","title":"添加经销商"},
+					{"index":"/default/dealer-referees","title":"推荐人列表"}
 				]
 			},
 			{
@@ -44,8 +44,8 @@
 				"icon":"el-icon-news",
 				"title":"客户管理",
 				"submenu":[
-					{"index":"5-1","title":"客户列表"},
-					{"index":"5-2","title":"添加客户"}
+					{"index":"/default/client","title":"客户列表"},
+					{"index":"/default/client-add","title":"添加客户"}
 				]
 			},
 			{
@@ -53,9 +53,9 @@
 				"icon":"el-icon-goods",
 				"title":"订单管理",
 				"submenu":[
-					{"index":"6-1","title":"未分账订单"},
-					{"index":"6-2","title":"已分账订单"},
-					{"index":"6-3","title":"首充订单"}
+					{"index":"/default/order-on-list","title":"未分账订单"},
+					{"index":"/default/order-off-list","title":"已分账订单"},
+					{"index":"/default/order-first-list","title":"首充订单"}
 				]
 			},
 			{
@@ -63,15 +63,16 @@
 				"icon":"el-icon-sold-out",
 				"title":"售后管理",
 				"submenu":[
-					{"index":"7-1","title":"售后列表"}
+					{"index":"/default/aftersale","title":"售后列表"}
 				]
 			},
 			{
 				"index":"8",
-				"icon":"el-icon-setting",
+				"icon":"el-icon-view",
 				"title":"测试中心",
 				"submenu":[
 					{"index":"/default/test-client","title":"测试客户列表"},
+					{"index":"/default/test-client-add","title":"测试客户添加"},
 					{"index":"/default/test-device","title":"测试设备列表"}
 				]
 			},
@@ -80,8 +81,8 @@
 				"icon":"el-icon-setting",
 				"title":"管理员设置",
 				"submenu":[
-					{"index":"9-1","title":"管理员列表"},
-					{"index":"9-2","title":"添加管理员"}
+					{"index":"/default/admin","title":"管理员列表"},
+					{"index":"/default/admin-add","title":"添加管理员"}
 				]
 			}
 		],

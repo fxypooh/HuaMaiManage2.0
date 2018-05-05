@@ -1,6 +1,9 @@
 <template>
 	<div>
-		<h1 class="pageTitle">客户设备-列表 </h1>
+		<h1 class="pageTitle">
+      订单列表-首充订单 
+      <el-button type="primary" @click="goAdd">导出excel表前一千条</el-button>
+    </h1>
     <el-form :model="ruleForm" status-icon ref="ruleForm" label-width="70px" class="demo-ruleForm">
       <el-row :gutter="10">
         <el-col :span="6">
@@ -47,34 +50,27 @@
       max-height="580">
         <el-table-column
           fixed
-          prop="modelbyte"
-          label="型号"
-          align="center"
-          width="50">
-        </el-table-column>
-        <el-table-column
-          prop="modelname"
-          label="型号名称"
-          align="center"
-          min-width="120">
-        </el-table-column>
-        <el-table-column
-          prop="mac"
-          label="Mac码"
+          prop="device"
+          label="设备编码"
           align="center"
           min-width="140">
-        </el-table-column>
-        <el-table-column
-          prop="deviceName"
-          label="设备名称"
-          align="center"
-          min-width="120">
+          <template slot-scope="scope">
+            <el-popover placement="top">
+                <p>型号Byte: {{ scope.row.device.modelbyte }}</p>
+                <p>型号名称: {{ scope.row.device.modelname }}</p>
+                <p>设备名称: {{ scope.row.device.deviceName }}</p>
+                <p>接入时间: {{ scope.row.device.startdate }}</p>
+                <p>服务时间: {{ scope.row.device.servicedate }}</p>
+                <p v-for="item in scope.row.device.part">{{item.name}}:{{item.day}},寿命:{{item.allday}}</p>
+              <el-button type="primary" plain slot="reference" size="mini">{{ scope.row.device.mac}}</el-button>
+            </el-popover>
+          </template>
         </el-table-column>
         <el-table-column
             prop="client"
             label="客户"
             align="center"
-            min-width="120">
+            min-width="110">
             <template slot-scope="scope">
               <el-popover placement="top">
                   <p>姓名: {{ scope.row.client.name }}</p>
@@ -88,7 +84,7 @@
             prop="dealer"
             label="经销商"
             align="center"
-            min-width="120">
+            min-width="110">
             <template slot-scope="scope">
               <el-popover placement="top">
                   <p>姓名: {{ scope.row.dealer.name }}</p>
@@ -102,66 +98,35 @@
             </template>
         </el-table-column>
         <el-table-column
-          prop="city"
-          label="城市"
+          prop="money"
+          label="充值金额"
           align="center"
-          min-width="180">
+          min-width="90">
         </el-table-column>
         <el-table-column
-          prop="startdate"
-          label="接入时间"
+          prop="day"
+          label="购买时长"
+          align="center"
+          min-width="90">
+        </el-table-column>
+        <el-table-column
+          prop="orderDay"
+          label="订单时间"
           align="center"
           min-width="110">
         </el-table-column>
         <el-table-column
-          prop="servicedate"
-          label="服务剩余时间"
+          prop="orderWay"
+          label="付款方式"
           align="center"
-          min-width="110">
+          min-width="80">
         </el-table-column>
         <el-table-column
-            prop="part"
-            label="查看滤芯"
-            align="center"
-            min-width="110">
-            <template slot-scope="scope">
-              <el-popover placement="top" >
-                  <el-table :data="scope.row.part" max-height="200">
-                    <el-table-column width="180" property="name" label="滤芯名称" fixed></el-table-column>
-                    <el-table-column width="80" property="day" label="剩余时间"></el-table-column>
-                    <el-table-column width="80" property="allday" label="总寿命"></el-table-column>
-                  </el-table>
-                <el-button type="primary" plain slot="reference" size="mini">查看滤芯</el-button>
-              </el-popover>
-            </template>
+          prop="orderCode"
+          label="付款订单"
+          align="center"
+          min-width="250">
         </el-table-column>
-         <el-table-column
-            prop="orders"
-            label="查看订单"
-            align="center"
-            min-width="110">
-            <template slot-scope="scope">
-              <el-popover placement="top">
-                  <el-table :data="scope.row.orders" max-height="200">
-                    <el-table-column width="80" property="money" align="center" label="充值金额" fixed></el-table-column>
-                    <el-table-column width="80" property="day" align="center" label="购买时长"></el-table-column>
-                    <el-table-column width="100" property="date" align="center" label="下单订单"></el-table-column>
-                    <el-table-column width="80" property="payWay" align="center" label="付款方式"></el-table-column>
-                  </el-table>
-                <el-button type="primary" plain slot="reference" size="mini">查看订单</el-button>
-              </el-popover>
-            </template>
-        </el-table-column>
-        <el-table-column
-            fixed="right"
-            label="操作"
-            align="center"
-            min-width="200">
-            <template slot-scope="scope">
-              <el-button size="mini" @click="sendMsg(scope.$index, scope.row)" type="warning" plain>解绑设备</el-button>
-              <el-button size="mini" @click="delMsg(scope.$index, scope.row)" type="danger" plain>删除设备</el-button>
-            </template>
-          </el-table-column>
       </el-table>
 
 		<el-pagination
@@ -181,7 +146,7 @@
 <script>
 import { regionDataPlus, CodeToText} from 'element-china-area-data'
 export default {
-  name: 'DeivceOnList',
+  name: 'OrderFirstList',
   data () {
     return {
       tableData: [],
@@ -226,11 +191,6 @@ export default {
     }
   },
   methods:{
-  	goUpdate(index,item){
-  		console.log(index,item.deviceId);
-      //this.$router.push('device-update/'+item.deviceId);
-  		this.$router.push({name: 'DeviceUpdate', params: {id: item.deviceId}});
-  	},
   	handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
         this.pageSize=val;
@@ -268,7 +228,7 @@ export default {
   },
   created:function(){
     var _this=this;
-    this.$ajax.get("../../../static/data/deviceOnList.json").then(function(response){
+    this.$ajax.get("../../../static/data/orderOnList.json").then(function(response){
         _this.tableData=response.data;
         //console.log(power);
     }).catch(function(error){

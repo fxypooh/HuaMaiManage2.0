@@ -15,6 +15,20 @@ import DeivceOnList from '@/components/device/DeivceOnList'
 import DeivceOffList from '@/components/device/DeivceOffList'
 import DeivceParts from '@/components/device/DeivceParts'
 import DeivcePartsPrint from '@/components/device/DeivcePartsPrint'
+import DealersList from '@/components/dealer/DealersList'
+import DealerAdd from '@/components/dealer/DealerAdd'
+import RefereesList from '@/components/dealer/RefereesList'
+import ClientsList from '@/components/client/ClientsList'
+import ClientAdd from '@/components/client/ClientAdd'
+import OrderOnList from '@/components/order/OrderOnList'
+import OrderOffList from '@/components/order/OrderOffList'
+import OrderFirstList from '@/components/order/OrderFirstList'
+import AfterSale from '@/components/aftersale/AfterSale'
+import TestClientsList from '@/components/test/TestClientsList'
+import TestClientAdd from '@/components/test/TestClientAdd'
+import TestDeivceOnList from '@/components/test/TestDeivceOnList'
+import AdminList from '@/components/admin/AdminList'
+import AdminAdd from '@/components/admin/AdminAdd'
 
 Vue.use(Router);
 Vue.use(Vuex);
@@ -41,7 +55,25 @@ const router = new Router({
                     { path: 'device-update/:id', name:'DeivceModelUpdate',component: DeivceModelAdd, meta:{auth:true}},
                     { path: 'device-on-list', name:'DeivceOnList',component: DeivceOnList, meta:{auth:true}},
                     { path: 'device-off-list', name:'DeivceOffList',component: DeivceOffList, meta:{auth:true}},
-                    { path: 'device-parts', name:'DeivceParts',component: DeivceParts, meta:{auth:true}}
+                    { path: 'device-parts', name:'DeivceParts',component: DeivceParts, meta:{auth:true}},
+                    { path: 'dealer', name:'DealersList',component: DealersList, meta:{auth:true}},
+                    { path: 'dealer-add', name:'DealerAdd',component: DealerAdd, meta:{auth:true}},
+                    { path: 'dealer-update/:id', name:'DealerUpdate',component: DealerAdd, meta:{auth:true}},
+                    { path: 'dealer-referees', name:'RefereesList',component: RefereesList, meta:{auth:true}},
+                    { path: 'client', name:'ClientsList',component: ClientsList, meta:{auth:true}},
+                    { path: 'client-add', name:'ClientAdd',component: ClientAdd, meta:{auth:true}},
+                    { path: 'client-update/:id', name:'ClientUpdate',component: ClientAdd, meta:{auth:true}},
+                    { path: 'order-on-list', name:'OrderOnList',component: OrderOnList, meta:{auth:true}},
+                    { path: 'order-off-list', name:'OrderOffList',component: OrderOffList, meta:{auth:true}},
+                    { path: 'order-first-list', name:'OrderFirstList',component: OrderFirstList, meta:{auth:true}},
+                    { path: 'aftersale', name:'AfterSale',component: AfterSale, meta:{auth:true}},
+                    { path: 'test-client', name:'TestClientsList',component: TestClientsList, meta:{auth:true}},
+                    { path: 'test-client-add', name:'TestClientAdd',component: TestClientAdd, meta:{auth:true}},
+                    { path: 'test-client-update/:id', name:'TestClientUpdate',component: TestClientAdd, meta:{auth:true}},
+                    { path: 'test-device', name:'TestDeivceOnList',component: TestDeivceOnList, meta:{auth:true}},
+                    { path: 'admin', name:'AdminList',component: AdminList, meta:{auth:true}},
+                    { path: 'admin-add', name:'AdminAdd',component: AdminAdd, meta:{auth:true}},
+                    { path: 'admin-update/:id', name:'AdminUpdate',component: AdminAdd, meta:{auth:true}},
                 ]
     },
     {

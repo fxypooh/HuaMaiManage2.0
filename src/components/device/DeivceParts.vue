@@ -17,12 +17,7 @@
         </el-col>
         <el-col :span="5">
           <el-form-item label="部件小于" prop="searchDay">
-              <el-input 
-              v-model.trim="ruleForm.searchDay" 
-              placeholder="输入数字（小于多少天到期）" 
-              suffix-icon="el-icon-time" 
-              type="number">
-              </el-input>
+              <el-input-number v-model.trim="ruleForm.searchDay" controls-position="right"  :min="7"></el-input-number> 天
           </el-form-item>
         </el-col>
         
@@ -173,7 +168,6 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
       this.$refs[formName].clearValidate();
-      this.flieName="";
     }
   },
   created:function(){

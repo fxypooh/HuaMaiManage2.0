@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1 class="pageTitle">客户设备-列表 </h1>
+		<h1 class="pageTitle">测试客户设备-列表 </h1>
     <el-form :model="ruleForm" status-icon ref="ruleForm" label-width="70px" class="demo-ruleForm">
       <el-row :gutter="10">
         <el-col :span="6">
@@ -156,9 +156,8 @@
             fixed="right"
             label="操作"
             align="center"
-            min-width="200">
+            min-width="100">
             <template slot-scope="scope">
-              <el-button size="mini" @click="sendMsg(scope.$index, scope.row)" type="warning" plain>解绑设备</el-button>
               <el-button size="mini" @click="delMsg(scope.$index, scope.row)" type="danger" plain>删除设备</el-button>
             </template>
           </el-table-column>
@@ -181,7 +180,7 @@
 <script>
 import { regionDataPlus, CodeToText} from 'element-china-area-data'
 export default {
-  name: 'DeivceOnList',
+  name: 'TestDeivceOnList',
   data () {
     return {
       tableData: [],

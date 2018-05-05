@@ -5,7 +5,7 @@
 	  	<div class="header-logo"><img src="../assets/images/logo1.png" class="logo"><span>管理系统V2.0</span></div>
 	  	<ul class="header-operations">
 	  		<li>{{levelText}}:{{user}}</li>
-	  		<li>设置</li>
+	  		<li class="loginOut" @click="setUser">设置</li>
         <router-link to="/" tag="li" class="loginOut">退出</router-link>
 	  	</ul>
 	  </el-header>
@@ -44,6 +44,11 @@ export default {
         return "普通管理员"
         break;
       }
+    }
+  },
+  methods:{
+    setUser(){
+      this.$router.push({name: 'AdminUpdate', params: {id: 1}});
     }
   },
   created:function(){

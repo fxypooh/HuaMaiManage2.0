@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<h1 class="pageTitle">设备型号-{{statusMsg}}</h1>
-		<el-row :gutter="100">
-		  <el-col :span="5">
+		<el-row :gutter="150">
+		  <el-col :span="6">
 		  	<div class="grid-content">
 		  		<img :src="src" class="device_img">
 		  		<el-upload
@@ -21,36 +21,38 @@
 		  <el-col :span="18">
 		  <div class="grid-content">
 		  	<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-          <el-row :gutter="10">
-            <el-col :span="8">
+          <el-row :gutter="25">
+            <el-col :span="6">
     		  		<el-form-item label="型号byte" prop="modelByte">
-      				    <el-input v-model.trim="ruleForm.modelByte" placeholder="请输入型号byte" type="number" max="20" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.modelByte" controls-position="right"  :min="1" :max="20"></el-input-number>
       				</el-form-item>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="6">
       				<el-form-item label="型号名称" prop="modelName">
-      				    <el-input v-model.trim="ruleForm.modelName" placeholder="请输入型号名称" maxlength="20"></el-input>
+      				  <el-input v-model.trim="ruleForm.modelName" placeholder="请输入型号名称" maxlength="20"></el-input>
       				</el-form-item>
             </el-col>
-            <el-col :span="8">
+            <el-col :span="6">
       				<el-form-item label="分成比例" prop="splitRatio">
-      				    <el-input v-model.trim="ruleForm.splitRatio" placeholder="请输入0-1之间的数" type="number" step="0.01" max="1.0" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.splitRatio" controls-position="right"  :min="0" :max="1" :step="0.01" placeholder="请输入0-1之间的数"></el-input-number>
       				</el-form-item>
             </el-col>
-            <el-col :span="12">
+          </el-row>
+          <el-row :gutter="25">
+            <el-col :span="6">
               <el-form-item label="滤芯个数" prop="partCount">
-                  <el-input v-model.trim="ruleForm.partCount" placeholder="请输入滤芯个数" type="number" step="1" max="6" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.partCount" controls-position="right"  :min="1" :max="6" :step="1" placeholder="请输入滤芯个数"></el-input-number>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="6">
               <el-form-item label="首充价格" prop="firstPrice">
-                  <el-input v-model.trim="ruleForm.firstPrice" placeholder="请输入首充价格" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.firstPrice" controls-position="right"  :min="0" :step="1" placeholder="请输入首充价格"></el-input-number>
               </el-form-item>
             </el-col>
           </el-row>
 
           <h3 class="right_title">滤芯名称设置</h3>
-          <el-row :gutter="60">
+          <el-row :gutter="30">
             <el-col :span="12">
               <el-form-item label="滤芯1名称" prop="device_part1Name">
                   <el-input v-model.trim="ruleForm.device_part1Name" placeholder="请输入滤芯1名称"></el-input>
@@ -58,7 +60,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="滤芯1寿命" prop="device_part1All">
-                  <el-input v-model.trim="ruleForm.device_part1All" placeholder="请输入滤芯1寿命天数" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.device_part1All" controls-position="right"  :min="0" :step="1"></el-input-number> 天
               </el-form-item>
             </el-col>
             <el-col :span="12">
@@ -68,7 +70,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="滤芯2寿命" prop="device_part2All">
-                  <el-input v-model.trim="ruleForm.device_part2All" placeholder="请输入滤芯2寿命天数" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.device_part2All" controls-position="right"  :min="0" :step="1"></el-input-number> 天
               </el-form-item>
             </el-col>
             <el-col :span="12">
@@ -78,7 +80,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="滤芯3寿命" prop="device_part3All">
-                  <el-input v-model.trim="ruleForm.device_part3All" placeholder="请输入滤芯3寿命天数" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.device_part3All" controls-position="right"  :min="0" :step="1"></el-input-number> 天
               </el-form-item>
             </el-col>
             <el-col :span="12">
@@ -88,7 +90,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="滤芯4寿命" prop="device_part4All">
-                  <el-input v-model.trim="ruleForm.device_part4All" placeholder="请输入滤芯4寿命天数" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.device_part4All" controls-position="right"  :min="0" :step="1"></el-input-number> 天
               </el-form-item>
             </el-col>
             <el-col :span="12">
@@ -98,7 +100,7 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="滤芯5寿命" prop="device_part5All">
-                  <el-input v-model.trim="ruleForm.device_part5All" placeholder="请输入滤芯5寿命天数" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.device_part5All" controls-position="right"  :min="0" :step="1"></el-input-number> 天
               </el-form-item>
             </el-col>
             <el-col :span="12">
@@ -108,47 +110,49 @@
             </el-col>
             <el-col :span="12">
               <el-form-item label="滤芯6寿命" prop="device_part6All">
-                  <el-input v-model.trim="ruleForm.device_part6All" placeholder="请输入滤芯6寿命天数" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.device_part6All" controls-position="right"  :min="0" :step="1"></el-input-number> 天
               </el-form-item>
             </el-col>
           </el-row>
 
           <h3 class="right_title">服务费用设置</h3>
-          <el-row :gutter="60">
-            <el-col :span="12">
+          <el-row :gutter="20">
+            <el-col :span="6">
               <el-form-item label="一个月" prop="month1">
-                  <el-input v-model.trim="ruleForm.month1" placeholder="请输入一个月价格" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.month1" controls-position="right"  :min="0" :step="1"></el-input-number>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="6">
               <el-form-item label="三个月" prop="month2">
-                  <el-input v-model.trim="ruleForm.month2" placeholder="请输入三个月价格" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.month2" controls-position="right"  :min="0" :step="1"></el-input-number>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="6">
               <el-form-item label="六个月" prop="month3">
-                  <el-input v-model.trim="ruleForm.month3" placeholder="请输入六个月价格" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.month3" controls-position="right"  :min="0" :step="1"></el-input-number>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+          </el-row>
+          <el-row :gutter="20">
+            <el-col :span="6">
               <el-form-item label="一年" prop="years1">
-                  <el-input v-model.trim="ruleForm.years1" placeholder="请输入一年价格" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.years1" controls-position="right"  :min="0" :step="1"></el-input-number>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="6">
               <el-form-item label="二年" prop="years2">
-                  <el-input v-model.trim="ruleForm.years2" placeholder="请输入二年价格" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.years2" controls-position="right"  :min="0" :step="1"></el-input-number>
               </el-form-item>
             </el-col>
-            <el-col :span="12">
+            <el-col :span="6">
               <el-form-item label="三年" prop="years3">
-                  <el-input v-model.trim="ruleForm.years3" placeholder="请输入三年价格" type="number" step="1" min="0"></el-input>
+                <el-input-number v-model.trim="ruleForm.years3" controls-position="right"  :min="0" :step="1"></el-input-number>
               </el-form-item>
             </el-col>
           </el-row>
 
           <el-form-item>
-            <el-button type="primary" size="medium" style="width:100%" @click="submitForm('ruleForm')">提交{{statusMsg}}</el-button>
+            <el-button type="primary" size="medium" style="width:72%" @click="submitForm('ruleForm')">提交{{statusMsg}}</el-button>
           </el-form-item>
   			</el-form>
 		  </div>
